@@ -7,6 +7,7 @@ package edu.eci.arst.concprg.prodcons;
 
 import java.util.Queue;
 import java.util.Random;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -17,7 +18,6 @@ import java.util.logging.Logger;
 public class Producer extends Thread {
 
     private Queue<Integer> queue = null;
-
     private int dataSeed = 0;
     private Random rand=null;
     private final long stockLimit;
@@ -31,17 +31,25 @@ public class Producer extends Thread {
     @Override
     public void run() {
         while (true) {
-
-            dataSeed = dataSeed + rand.nextInt(100);
-            System.out.println("Producer added " + dataSeed);
-            queue.add(dataSeed);
-            
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException ex) {
-                Logger.getLogger(Producer.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
+        	if(queue.size()<stockLimit) {
+        		
+                synchronized (queue) {
+                	dataSeed = dataSeed + rand.nextInt(100);
+	                System.out.println("Producer added " + dataSeed);
+	                queue.add(dataSeed);
+	                queue.notify();
+				}
+                
+                
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(Producer.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+        	}
         }
+
     }
 }
+
