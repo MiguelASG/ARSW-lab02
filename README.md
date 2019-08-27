@@ -18,23 +18,30 @@
 - 2. Seria la vida de un jugador multiplicado por el numero de jugadores N.
 
 - 3. No, no se cumple la invariante.
-antes
+
+- antes
+
 ![Alt Text](https://github.com/MiguelASG/ARSW-lab02/blob/master/imagenes/2.3a.PNG)
-despues
+
+- despues
+
 ![Alt Text](https://github.com/MiguelASG/ARSW-lab02/blob/master/imagenes/2.3b.PNG)
 
 - 4.
-implementacion boton pause & check
+
+- implementacion boton pause & check
 
 ![Alt Text](https://github.com/MiguelASG/ARSW-lab02/blob/master/imagenes/2.4a.PNG)
 
-implementacion resume
+- implementacion resume
+
 ![Alt Text](https://github.com/MiguelASG/ARSW-lab02/blob/master/imagenes/2.4b.PNG)
 
-implementacion de sincronizacion
+- implementacion de sincronizacion
+
 ![Alt Text](https://github.com/MiguelASG/ARSW-lab02/blob/master/imagenes/2.4c.PNG)
 
-- 5.
+- 5. aun no se cumple la invariante.
 
 - 6.
 
