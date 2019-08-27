@@ -43,13 +43,23 @@
 
 - 5. aun no se cumple la invariante.
 
-- 6.
-
-- 7.
-
 - 8.
 
+![Alt Text](https://github.com/MiguelASG/ARSW-lab02/blob/master/imagenes/2.8.PNG)
+
 - 9.
+
+- 100 immortals
+
+![Alt Text](https://github.com/MiguelASG/ARSW-lab02/blob/master/imagenes/2.9a.PNG)
+
+- 1000 immortals
+
+![Alt Text](https://github.com/MiguelASG/ARSW-lab02/blob/master/imagenes/2.9b.PNG)
+
+- 10000 immortals
+
+![Alt Text](https://github.com/MiguelASG/ARSW-lab02/blob/master/imagenes/2.9c.PNG)
 
 - 10.
 
