@@ -20,9 +20,11 @@
 - 3. No, no se cumple la invariante.
 
 - antes
+
 ![Alt Text](https://github.com/MiguelASG/ARSW-lab02/blob/master/imagenes/2.3a.PNG)
 
 - despues
+
 ![Alt Text](https://github.com/MiguelASG/ARSW-lab02/blob/master/imagenes/2.3b.PNG)
 
 - 4.
