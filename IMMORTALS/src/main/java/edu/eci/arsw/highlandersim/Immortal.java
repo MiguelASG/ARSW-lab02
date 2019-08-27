@@ -16,6 +16,8 @@ public class Immortal extends Thread {
     private final String name;
 
     private final Random r = new Random(System.currentTimeMillis());
+    
+    private boolean disponible = true;
 
 
     public Immortal(String name, List<Immortal> immortalsPopulation, int health, int defaultDamageValue, ImmortalUpdateReportCallback ucb) {
@@ -30,26 +32,38 @@ public class Immortal extends Thread {
     public void run() {
 
         while (true) {
-            Immortal im;
-
-            int myIndex = immortalsPopulation.indexOf(this);
-
-            int nextFighterIndex = r.nextInt(immortalsPopulation.size());
-
-            //avoid self-fight
-            if (nextFighterIndex == myIndex) {
-                nextFighterIndex = ((nextFighterIndex + 1) % immortalsPopulation.size());
-            }
-
-            im = immortalsPopulation.get(nextFighterIndex);
-
-            this.fight(im);
-
-            try {
-                Thread.sleep(1);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+        	
+        	if(!disponible) {
+        		try {
+        			synchronized (immortalsPopulation) {
+        				immortalsPopulation.wait();
+					}
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+        	}
+        	else {
+	            Immortal im;
+	
+	            int myIndex = immortalsPopulation.indexOf(this);
+	
+	            int nextFighterIndex = r.nextInt(immortalsPopulation.size());
+	
+	            //avoid self-fight
+	            if (nextFighterIndex == myIndex) {
+	                nextFighterIndex = ((nextFighterIndex + 1) % immortalsPopulation.size());
+	            }
+	
+	            im = immortalsPopulation.get(nextFighterIndex);
+	
+	            this.fight(im);
+	
+	            try {
+	                Thread.sleep(1);
+	            } catch (InterruptedException e) {
+	                e.printStackTrace();
+	            }
+        	}
 
         }
 
@@ -65,7 +79,7 @@ public class Immortal extends Thread {
             updateCallback.processReport(this + " says:" + i2 + " is already dead!\n");
         }
 
-    }
+    }    
 
     public void changeHealth(int v) {
         health = v;
@@ -79,6 +93,10 @@ public class Immortal extends Thread {
     public String toString() {
 
         return name + "[" + health + "]";
+    }
+    
+    public void setDisponible() {
+    	disponible = !disponible;
     }
 
 }
