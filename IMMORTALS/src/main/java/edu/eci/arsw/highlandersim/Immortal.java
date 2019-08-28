@@ -18,6 +18,8 @@ public class Immortal extends Thread {
     private final Random r = new Random(System.currentTimeMillis());
     
     private boolean disponible = true;
+    
+    private boolean alive = true;
 
 
     public Immortal(String name, List<Immortal> immortalsPopulation, int health, int defaultDamageValue, ImmortalUpdateReportCallback ucb) {
@@ -46,8 +48,11 @@ public class Immortal extends Thread {
 	            Immortal im;
 	
 	            int myIndex = immortalsPopulation.indexOf(this);
-	
+	            
 	            int nextFighterIndex = r.nextInt(immortalsPopulation.size());
+	            while(!immortalsPopulation.get(nextFighterIndex).alive) {
+	            	nextFighterIndex = r.nextInt(immortalsPopulation.size());
+	            }
 	
 	            //avoid self-fight
 	            if (nextFighterIndex == myIndex) {
