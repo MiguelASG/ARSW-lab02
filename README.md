@@ -61,7 +61,9 @@
 
 ![Alt Text](https://github.com/MiguelASG/ARSW-lab02/blob/master/imagenes/2.9c.PNG)
 
-- 10.
+- 10. Mi estrategia seria que cuando un immortal buscara al siguiente, si este no estaba vivo seguia buscando.
 
-- 11.
+- 11. 
+
+![Alt Text](https://github.com/MiguelASG/ARSW-lab02/blob/master/imagenes/2.11.PNG)
 
